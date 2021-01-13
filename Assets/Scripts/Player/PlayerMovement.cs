@@ -11,12 +11,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float sprintSpeed = 4f;
     [SerializeField] private float groundDistance = 0.4f;
+
+    public GameObject Flashlight;
     
     private float gravity = -9.8f;
     private Vector3 velocity;
     private bool isGrounded;
 
     public bool isMoving = false;
+
+    private bool flashlightEnabled = false;
     private void Update()
     {
         float X = Input.GetAxis("Horizontal");
@@ -43,6 +47,13 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
         //Debug.Log(controller.transform.position);
+
+        //flashlight
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            flashlightEnabled = !flashlightEnabled;
+            Flashlight.SetActive(flashlightEnabled);
+        }
     }
 
 }
