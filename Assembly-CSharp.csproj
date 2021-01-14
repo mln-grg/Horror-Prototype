@@ -99,6 +99,7 @@
     <Compile Include="Assets\Art\Plugins\VolumetricLightBeam\Scripts\VolumetricLightBeam.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraHeadBob.cs" />
     <Compile Include="Assets\Scripts\Camera\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\DemoHorrorScene.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\FlickeringLights.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\TV.cs" />
     <Compile Include="Assets\Scripts\Player\Flashlight.cs" />

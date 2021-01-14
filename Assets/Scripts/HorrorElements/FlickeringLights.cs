@@ -11,8 +11,8 @@ public class FlickeringLights : MonoBehaviour
     public VideoPlayer tv;
     public TV tvScript;
     public AudioSource flickerSound;
-    [SerializeField] private float minTime;
-    [SerializeField] private float maxTime;
+    public float minTime;
+    public float maxTime;
     [SerializeField] private float timer;
     [SerializeField] private bool lightsEnabled;
     
@@ -29,6 +29,9 @@ public class FlickeringLights : MonoBehaviour
     public Material fluroscentLight;
     public Material lampDesk;
     public Material lampWall;
+
+    private bool firstFlicker = false;
+    private bool secondFlicker = false;
     private void Awake()
     {
         volume.profile.TryGetSettings(out colorGradingLayer);
@@ -52,7 +55,9 @@ public class FlickeringLights : MonoBehaviour
             colorGradingLayer.postExposure.value = Mathf.Lerp(defaultIntensity, lowVoltageIntensity, voltageDropTime * Time.deltaTime);
 
         }
+
     }
+       
     public void StartFlickering()
     {
         start = true;
