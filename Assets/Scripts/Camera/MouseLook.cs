@@ -8,11 +8,13 @@ public class MouseLook : MonoBehaviour
 
     private float xRotation = 0f;
 
-    [SerializeField] private float normalView = 60f;
+    public float normalView = 60f;
     [SerializeField] private float zoomedView = 20f;
     [SerializeField] private float viewTransitionSmoothening = 5f;
     [SerializeField] private float RotationClampUp = -50f;
     [SerializeField] private float RotationClampDown = 25f;
+
+    public bool canChangeFOV = false;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -28,12 +30,14 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         //Camera Zoom
-        if (Input.GetMouseButton(1))
-        {
-            GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoomedView, viewTransitionSmoothening * Time.deltaTime);
-        }
-        else
-            GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normalView, viewTransitionSmoothening * Time.deltaTime);
+
+      if (Input.GetMouseButton(1))
+      {
+        GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoomedView, viewTransitionSmoothening * Time.deltaTime);
+      }
+      else
+        GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normalView, viewTransitionSmoothening * Time.deltaTime);
+
 
     }
 
