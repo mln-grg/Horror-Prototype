@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sprintSpeed = 4f;
     [SerializeField] private float groundDistance = 0.4f;
 
-    public GameObject Flashlight;
+    public Light flashlight;
     
     private float gravity = -9.8f;
     private Vector3 velocity;
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             flashlightEnabled = !flashlightEnabled;
-            Flashlight.SetActive(flashlightEnabled);
+            flashlight.enabled = flashlightEnabled;
         }
     }
 

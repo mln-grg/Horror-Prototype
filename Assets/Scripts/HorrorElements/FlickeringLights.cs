@@ -1,8 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Video;
+
+
+//veryfast blinking 0.01-0.02
+//default blinking 0.5 - 0.9
 public class FlickeringLights : MonoBehaviour
 {
     public GameObject Lights;
+    public VideoPlayer tv;
+    public TV tvScript;
+    public AudioSource flickerSound;
     [SerializeField] private float minTime;
     [SerializeField] private float maxTime;
     [SerializeField] private float timer;
@@ -42,13 +50,13 @@ public class FlickeringLights : MonoBehaviour
         if (start)
         {
             colorGradingLayer.postExposure.value = Mathf.Lerp(defaultIntensity, lowVoltageIntensity, voltageDropTime * Time.deltaTime);
-            Debug.Log(colorGradingLayer.postExposure.value);
+
         }
     }
     public void StartFlickering()
     {
         start = true;
-        
+        flickerSound.Play();
     }
     private void Flicker()
     {
@@ -84,6 +92,7 @@ public class FlickeringLights : MonoBehaviour
     }
     public void StopFlickerwithLightsOn()
     {
+        flickerSound.Stop();
         start = false;
         fanCeiling.EnableKeyword("_EMISSION");
         lampDesk.EnableKeyword("_EMISSION");
@@ -94,6 +103,7 @@ public class FlickeringLights : MonoBehaviour
     }
     public void StopFlickerwithLightsOff()
     {
+        flickerSound.Stop();
         start = false;
         fanCeiling.DisableKeyword("_EMISSION");
         lampDesk.DisableKeyword("_EMISSION");
@@ -101,6 +111,8 @@ public class FlickeringLights : MonoBehaviour
         fluroscentLight.DisableKeyword("_EMISSION");
         Lights.SetActive(false);
         colorGradingLayer.postExposure.value = lowVoltageIntensity;
+        tv.enabled = false;
+        tvScript.switchOff();
     }
 
 }
