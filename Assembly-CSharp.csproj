@@ -101,7 +101,12 @@
     <Compile Include="Assets\Scripts\Camera\MouseLook.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\DemoHorrorScene.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\FlickeringLights.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\StartingWhispers.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\TV.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\Trigger_Event_1.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\Trigger_Event_2.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\Trigger_Event_3.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\Trigger_Event_4.cs" />
     <Compile Include="Assets\Scripts\Player\Flashlight.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\test.cs" />

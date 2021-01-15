@@ -5,6 +5,7 @@ public class Flashlight : MonoBehaviour
     private Vector3 vectOffset;
     private GameObject goFollow;
     [SerializeField] private float speed = 3.0f;
+    
 
     private void Start()
     {
