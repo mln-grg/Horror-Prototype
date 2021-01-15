@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Video;
 
@@ -10,7 +11,8 @@ public class FlickeringLights : MonoBehaviour
     public GameObject Lights;
     public VideoPlayer tv;
     public TV tvScript;
-    public AudioSource flickerSound;
+    public AudioSource flickerSound1;
+    public AudioSource flickerSound2;
     public float minTime;
     public float maxTime;
     [SerializeField] private float timer;
@@ -61,7 +63,8 @@ public class FlickeringLights : MonoBehaviour
     public void StartFlickering()
     {
         start = true;
-        flickerSound.Play();
+        flickerSound1.Play();
+        flickerSound2.Play();
     }
     private void Flicker()
     {
@@ -95,9 +98,22 @@ public class FlickeringLights : MonoBehaviour
             }
         }
     }
+
+    public void SingleFlicker()
+    {
+        StartCoroutine(singleflick());
+    }
+
+    IEnumerator singleflick()
+    {
+        StartFlickering();
+        yield return new WaitForSeconds(5f);
+        StopFlickerwithLightsOn();
+    }
     public void StopFlickerwithLightsOn()
     {
-        flickerSound.Stop();
+        flickerSound1.Stop();
+        flickerSound2.Stop();
         start = false;
         fanCeiling.EnableKeyword("_EMISSION");
         lampDesk.EnableKeyword("_EMISSION");
@@ -108,7 +124,8 @@ public class FlickeringLights : MonoBehaviour
     }
     public void StopFlickerwithLightsOff()
     {
-        flickerSound.Stop();
+        flickerSound1.Stop();
+        flickerSound2.Stop();
         start = false;
         fanCeiling.DisableKeyword("_EMISSION");
         lampDesk.DisableKeyword("_EMISSION");

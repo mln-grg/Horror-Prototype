@@ -6,14 +6,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundMask;
-    [SerializeField] private Rigidbody rb;
     
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float sprintSpeed = 4f;
     [SerializeField] private float groundDistance = 0.4f;
 
     public Light flashlight;
-    
+    public GameObject Beam;
     private float gravity = -9.8f;
     private Vector3 velocity;
     private bool isGrounded;
@@ -21,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isMoving = false;
 
     private bool flashlightEnabled = false;
+    public AudioSource click;
     private void Update()
     {
         float X = Input.GetAxis("Horizontal");
@@ -51,8 +51,11 @@ public class PlayerMovement : MonoBehaviour
         //flashlight
         if (Input.GetKeyDown(KeyCode.F))
         {
+            click.Play();
             flashlightEnabled = !flashlightEnabled;
             flashlight.enabled = flashlightEnabled;
+            var vlb = Beam.GetComponent<VLB.VolumetricLightBeam>();
+            vlb.enabled = flashlightEnabled;
         }
     }
 

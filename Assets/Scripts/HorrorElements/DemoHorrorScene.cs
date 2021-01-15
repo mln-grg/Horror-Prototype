@@ -1,47 +1,49 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 public class DemoHorrorScene : MonoBehaviour
 {
     public FlickeringLights lights;
-    public MouseLook mouseLook;
+    public AudioSource knockOnTheDoor;
 
-    private bool firstFlicker = false;
-    private bool secondFlicker = false;
-    private bool thirdFlicker = false;
-
-    private void Awake()
+    public AudioSource fastHeartBeat;
+    public AudioSource slowHeartBeat;
+   public void triggered()
     {
-        mouseLook.normalView = 40f;
+        lights.minTime = 1f;
+        lights.maxTime = 2f;
+        lights.SingleFlicker();
     }
-    private void Update()
-    {
-        //Child Sits in front of TV Scene
 
-        if (lights.tv.time >= 20f && !firstFlicker)
-        {
-            lights.minTime = 1f;
-            lights.maxTime = 1.5f;
-            firstFlicker = true;
-            lights.StartFlickering();
-            mouseLook.normalView = 50f;
-        }
-        if (lights.tv.time >= 36f && !secondFlicker)
-        {
-            lights.minTime = 0.01f;
-            lights.maxTime = 0.2f;
-            secondFlicker = true;
-            mouseLook.normalView = 55f;
-        }
-        if(lights.tv.time >= 59f && !thirdFlicker)
-        {
-            lights.minTime = 0.01f;
-            lights.maxTime = 0.05f;
-            thirdFlicker = true;
-            mouseLook.normalView = 60f;
-        }
-        if(lights.tv.time >= 83f)
-        {
-            lights.StopFlickerwithLightsOff();
-        }
+    public void firstFlicker()
+    {
+        lights.minTime = 1f;
+        lights.maxTime = 1.5f;
+        lights.StartFlickering();
+    } 
+    public void secondFlicker()
+    {
+        lights.minTime = 0.01f;
+        lights.maxTime = 0.2f;
+        lights.StartFlickering();
+    }
+    public void thirdFlicker()
+    {
+        lights.minTime = 0.01f;
+        lights.maxTime = 0.05f;
+        lights.StartFlickering();
+        fastHeartBeat.Play();
+    }
+    public void goingDark()
+    {
+        lights.StopFlickerwithLightsOff();       
+        StartCoroutine(heartbeatSlowDown());
+    }
+    IEnumerator heartbeatSlowDown()
+    {
+        yield return new WaitForSeconds(10f);
+        fastHeartBeat.Stop();       
+        yield return new WaitForSeconds(2f);
+        knockOnTheDoor.Play();
     }
 }
 
