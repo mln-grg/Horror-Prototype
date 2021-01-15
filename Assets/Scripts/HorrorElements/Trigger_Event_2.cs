@@ -20,6 +20,5 @@ public class Trigger_Event_2 : MonoBehaviour
     {
         yield return new WaitForSeconds(6f);
         slowHeartBeat.Play();
-        Destroy(gameObject);
     }
 }

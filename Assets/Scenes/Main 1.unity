@@ -1863,7 +1863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockOnTheDoor: {fileID: 1848468802}
   DoorOpenandClose: {fileID: 520083688}
-  slowHeartBeat: {fileID: 0}
+  slowHeartBeat: {fileID: 539745219}
 --- !u!65 &105035074
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11709,6 +11709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 27679903}
+  heartbeat: {fileID: 539745219}
 --- !u!65 &713473843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35730,6 +35731,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 539745218, guid: 987e5ebcc9e72db44a0dc24c3f38f965, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539745219, guid: 987e5ebcc9e72db44a0dc24c3f38f965, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3818732564988438996, guid: 987e5ebcc9e72db44a0dc24c3f38f965,
         type: 3}
       propertyPath: flashlight
