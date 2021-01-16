@@ -99,10 +99,15 @@
     <Compile Include="Assets\Art\Plugins\VolumetricLightBeam\Scripts\VolumetricLightBeam.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraHeadBob.cs" />
     <Compile Include="Assets\Scripts\Camera\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\Environment\Door.cs" />
     <Compile Include="Assets\Scripts\Environment\Switches.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\CrawlAway.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\Crawler.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\DemoHorrorScene.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\FlickeringLights.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\Red_RoomC.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\Red_RoomptA.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\Red_RoomptB.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\Spawn_LittleGirl.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\StartingWhispers.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\TV.cs" />

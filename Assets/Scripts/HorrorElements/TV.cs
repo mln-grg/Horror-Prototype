@@ -11,6 +11,7 @@ public class TV : MonoBehaviour
     private bool donePlaying = false;
     private bool secondflicker = false;
     private bool thirdflicker = false;
+
     private void Update()
     {
         if(video1.time>=124 && !donePlaying)

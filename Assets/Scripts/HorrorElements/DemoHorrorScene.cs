@@ -33,6 +33,7 @@ public class DemoHorrorScene : MonoBehaviour
         lights.minTime = 0.01f;
         lights.maxTime = 0.2f;
         lights.StartFlickering();
+        HeavyBreathing.Play();
         
     }
     public void thirdFlicker()
@@ -40,7 +41,7 @@ public class DemoHorrorScene : MonoBehaviour
         lights.minTime = 0.01f;
         lights.maxTime = 0.05f;
         lights.StartFlickering();
-        HeavyBreathing.Play();
+        
         //slowHeartBeat.Play();
         
     }

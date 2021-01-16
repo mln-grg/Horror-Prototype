@@ -3,9 +3,9 @@
 public class Switches : MonoBehaviour
 {
     [SerializeField] private AudioSource click;
-    [SerializeField] private bool isPlayer = false;
     [SerializeField] private float radius;
     [SerializeField] private LayerMask Layer;
+    [SerializeField] private bool isPlayer = false;
     [SerializeField] private Light bulb;
     public Material fanCeiling;
     private bool on = true;
