@@ -12,13 +12,14 @@ public class Trigger_Event_2 : MonoBehaviour
         {
             knockOnTheDoor.Stop();
             DoorOpenandClose.Play();
+            StartCoroutine(heartbeat());
 
-            
         }
     }
     IEnumerator heartbeat()
     {
         yield return new WaitForSeconds(6f);
         slowHeartBeat.Play();
+        Destroy(gameObject);
     }
 }
