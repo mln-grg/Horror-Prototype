@@ -31,19 +31,21 @@ public class DemoHorrorScene : MonoBehaviour
         lights.minTime = 0.01f;
         lights.maxTime = 0.05f;
         lights.StartFlickering();
-        fastHeartBeat.Play();
+        slowHeartBeat.Play();
     }
     public void goingDark()
     {
-        lights.StopFlickerwithLightsOff();       
+        lights.StopFlickerwithLightsOff();
+        //fastHeartBeat.Stop();
+        //slowHeartBeat.Play();
         StartCoroutine(heartbeatSlowDown());
     }
     IEnumerator heartbeatSlowDown()
     {
         yield return new WaitForSeconds(10f);
-        fastHeartBeat.Stop();       
-        yield return new WaitForSeconds(2f);
+        slowHeartBeat.Stop();
         knockOnTheDoor.Play();
+        
     }
 }
 
