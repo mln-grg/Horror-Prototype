@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Light flashlight;
     public GameObject Beam;
+    public Spawn_LittleGirl s;
     private float gravity = -9.8f;
     private Vector3 velocity;
     private bool isGrounded;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool flashlightEnabled = false;
     public AudioSource click;
+    public bool checkForGirl = false;
     private void Update()
     {
         float X = Input.GetAxis("Horizontal");
@@ -56,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
             flashlight.enabled = flashlightEnabled;
             var vlb = Beam.GetComponent<VLB.VolumetricLightBeam>();
             vlb.enabled = flashlightEnabled;
+            if (checkForGirl)
+            {
+                s.done = true; 
+               checkForGirl = false;
+            }
         }
     }
 

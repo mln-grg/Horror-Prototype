@@ -15,6 +15,7 @@ public class FlickeringLights : MonoBehaviour
     public AudioSource flickerSound2;
     public float minTime;
     public float maxTime;
+    public Trigger_Event_1 r;
     [SerializeField] private float timer;
     [SerializeField] private bool lightsEnabled;
     
@@ -109,6 +110,8 @@ public class FlickeringLights : MonoBehaviour
         StartFlickering();
         yield return new WaitForSeconds(5f);
         StopFlickerwithLightsOn();
+        r.done = true;
+
     }
     public void StopFlickerwithLightsOn()
     {

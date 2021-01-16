@@ -7,6 +7,14 @@ public class DemoHorrorScene : MonoBehaviour
 
     public AudioSource fastHeartBeat;
     public AudioSource slowHeartBeat;
+    public AudioSource HeavyBreathing;
+
+    private bool heartSlowdown = false;
+    public float slowdownrate = 1f;
+
+    public GameObject littleGirl;
+    public Transform player;
+    public GameObject spawnGirl;
    public void triggered()
     {
         lights.minTime = 1f;
@@ -25,27 +33,44 @@ public class DemoHorrorScene : MonoBehaviour
         lights.minTime = 0.01f;
         lights.maxTime = 0.2f;
         lights.StartFlickering();
+        
     }
     public void thirdFlicker()
     {
         lights.minTime = 0.01f;
         lights.maxTime = 0.05f;
         lights.StartFlickering();
-        slowHeartBeat.Play();
+        HeavyBreathing.Play();
+        //slowHeartBeat.Play();
+        
     }
     public void goingDark()
     {
+        spawnGirl.SetActive(true);
         lights.StopFlickerwithLightsOff();
         //fastHeartBeat.Stop();
         //slowHeartBeat.Play();
+        heartSlowdown = true;
         StartCoroutine(heartbeatSlowDown());
     }
+
+    private void Update()
+    {
+        if (heartSlowdown)
+        {
+            //slowHeartBeat.volume = Mathf.Lerp(slowHeartBeat.volume, 0,  Time.deltaTime);
+            HeavyBreathing.volume = Mathf.Lerp(HeavyBreathing.volume, 0.25f,Time.deltaTime);
+        }
+        
+    }
+ 
+    
     IEnumerator heartbeatSlowDown()
     {
         yield return new WaitForSeconds(10f);
-        slowHeartBeat.Stop();
+        //slowHeartBeat.Stop();
         knockOnTheDoor.Play();
-        
+
     }
 }
 

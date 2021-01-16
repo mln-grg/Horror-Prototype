@@ -34,7 +34,7 @@ public class TV : MonoBehaviour
             demo.thirdFlicker();
         }
         
-        if(video2.isPlaying && video2.time >=71)
+        if(video2.isPlaying && video2.time >=73)
         {
 
             demo.goingDark();
