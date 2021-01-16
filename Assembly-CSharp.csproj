@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\HorrorElements\Crawler.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\DemoHorrorScene.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\FlickeringLights.cs" />
+    <Compile Include="Assets\Scripts\HorrorElements\Spawn_LittleGirl.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\StartingWhispers.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\TV.cs" />
     <Compile Include="Assets\Scripts\HorrorElements\Trigger_Event_1.cs" />
@@ -112,7 +113,6 @@
     <Compile Include="Assets\Scripts\Monster\Monster.cs" />
     <Compile Include="Assets\Scripts\Player\Flashlight.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\test.cs" />
     <Compile Include="Assets\_Flashlight PRO\_Assets\scripts\Flashlight_PRO.cs" />
     <None Include="Assets\Art\Plugins\VolumetricLightBeam\Shaders\shadergen_includes_hdrp.txt" />
     <None Include="Assets\HQ_Modular_RE_Mansion\readme.txt" />

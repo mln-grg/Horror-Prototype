@@ -14,8 +14,7 @@ public class DemoHorrorScene : MonoBehaviour
 
     public GameObject littleGirl;
     public Transform player;
-    private bool checkGirl = false;
-    private bool sawGirl = false;
+    public GameObject spawnGirl;
    public void triggered()
     {
         lights.minTime = 1f;
@@ -47,7 +46,7 @@ public class DemoHorrorScene : MonoBehaviour
     }
     public void goingDark()
     {
-        littleGirl.SetActive(true);
+        spawnGirl.SetActive(true);
         lights.StopFlickerwithLightsOff();
         //fastHeartBeat.Stop();
         //slowHeartBeat.Play();
@@ -62,48 +61,16 @@ public class DemoHorrorScene : MonoBehaviour
             //slowHeartBeat.volume = Mathf.Lerp(slowHeartBeat.volume, 0,  Time.deltaTime);
             HeavyBreathing.volume = Mathf.Lerp(HeavyBreathing.volume, 0.25f,Time.deltaTime);
         }
-        if (checkGirl)
-        {
-            RaycastHit hit;
-
-            if (Physics.Linecast(player.position, littleGirl.transform.position, out hit))
-            {
-                if (hit.transform == littleGirl.transform)
-                {
-                    Debug.Log(".");
-                }
-                else
-                {
-                    sawGirl = true;
-                    checkGirl = false;
-                    Debug.Log("Destroyed"); 
-                }
-
-            }
-        }
+        
     }
-    public bool destroyGirl()
-    {
-        if (sawGirl)
-        {
-            sawGirl = false;
-            Destroy(littleGirl);
-            return true;
-        }
-        else
-            return false;
-    }
-    IEnumerator timer()
-    {
-        yield return new WaitForSeconds(1f);
-        Destroy(littleGirl);
-    }
+ 
+    
     IEnumerator heartbeatSlowDown()
     {
         yield return new WaitForSeconds(10f);
         //slowHeartBeat.Stop();
         knockOnTheDoor.Play();
-        checkGirl = true;
+
     }
 }
 
